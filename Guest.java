@@ -7,5 +7,7 @@ class Guest {
         this.addressDetails = addressDetails;
     }
 
-    public void create() { }
+    public void create() {
+        System.out.println("Guest " + name + " profile created.");
+    }
 }

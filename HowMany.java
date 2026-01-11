@@ -1,11 +1,11 @@
 class HowMany {
-    private int number; // Integer in UML
+    private int number;
 
     public HowMany(int number) {
-        this.number = number;
+        this.number = number; 
     }
 
     public int getNumber() {
-        return number;
+        return number; 
     }
 }
