@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class ReserverPayer {
     private String creditCardDetails; 
     private String id; 
+    // Resolved Warning: Specified the generic type <Reservation>
     private List<Reservation> reservations = new ArrayList<>(); 
 
     public ReserverPayer(String creditCard, String identity) {
@@ -8,8 +12,9 @@ class ReserverPayer {
         this.id = identity; 
     }
 
+    // Logic Fix: Use instance list 'this.reservations'
     public void addReservation(Reservation r) {
-        reservations.add(r);
+        this.reservations.add(r);
     }
 
     public void create() {
