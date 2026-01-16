@@ -5,5 +5,7 @@ class RoomType {
     public RoomType(String kind, double cost) {
         this.kind = kind;
         this.cost = cost;
+             // RoomType snippet
+        if (cost < 0) throw new IllegalArgumentException("Cost cannot be negative");
     }
 }

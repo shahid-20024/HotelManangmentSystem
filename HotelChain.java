@@ -32,10 +32,16 @@ class HotelChain {
     }
 
     public ReserverPayer createReserverPayer(String card, String id) {
-        ReserverPayer rp = new ReserverPayer(card, id);
-        rp.create();
-        reserverPayers.add(rp);
-        return rp;
+        try {
+            // Refactored to catch exceptions from the ReserverPayer constructor
+            ReserverPayer rp = new ReserverPayer(card, id);
+            rp.create();
+            reserverPayers.add(rp);
+            return rp;
+        } catch (IllegalArgumentException e) {
+            System.err.println("Creation Failed: " + e.getMessage());
+            return null; // Graceful failure
+        }
     }
 
     private boolean canMakeReservation() { return true; }
