@@ -8,7 +8,13 @@ public class HotelchainTest {
         // Arrange
         HotelChain chain = new HotelChain();
         Hotel h = new Hotel("Test Hotel");
-        ReserverPayer rp = chain.createReserverPayer("5555", "UID-1");
+        
+        // REFACTOR FIX: Add a room so h.available() returns true
+        h.addRoom(new Room(101)); 
+        
+        // REFACTOR FIX: Use a hyphen in the card to pass ReserverPayer defensive check
+        ReserverPayer rp = chain.createReserverPayer("5555-4444", "UID-1");
+        
         Reservation res = new Reservation(77, new Date(), new Date());
         Room r = new Room(505);
         
@@ -20,5 +26,7 @@ public class HotelchainTest {
         chain.cancelReservation();
         
         assertNotNull(chain);
+        // REFACTOR FIX: Match the case-sensitive name getName()
+        assertEquals("Test Hotel", h.getName()); 
     }
 }
